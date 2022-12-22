@@ -1,1 +1,150 @@
-/* Monte sua estilização aqui */
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--color-grey-1);
+}
+
+header {
+    padding-top: 15px;
+}
+
+.container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-top: 36px;
+}
+
+.header__img {
+    width: 30vw;
+}
+
+
+
+.container__header--input {
+    display: flex;
+    gap: 10px;
+}
+
+.header__input {
+    width: 35vw;
+    height: 52px;
+
+    background-color: var(--color-grey-2);
+    color: var(--color-grey-3);
+
+    padding-left: 20px;
+
+    border-radius: 8px;
+    border: none;
+}
+
+.header__button {
+    background-color: var(--color-brand-1);
+
+    border: none;
+    border-radius: 8px;
+
+    height: 52px;
+    width: 15vw;
+}
+
+
+h1 {
+    color: var(--color-grey-6);
+
+    text-align: center;
+
+    margin-top: 100px;
+    margin-bottom: 60px;
+
+    font-size: var(--title-4);
+}
+
+
+
+.carregando {
+    color: var(--color-grey-6);
+
+    text-align: center;
+
+    margin-top: 182px;
+}
+
+
+.main__ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.main__li {
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-grey-2);
+
+    width: 800px;
+    max-width: 80vw;
+
+    border-radius: 8px;
+}
+
+.main__pokemon {
+    color: var(--color-grey-6);
+}
+
+
+
+
+
+
+@media(min-width: 500px) {
+    .header__img {
+        width: 20vw;
+    }
+}
+
+
+@media(min-width: 800px) {
+    .header__img {
+        width: 15vw;
+    }
+
+    .header__input {
+        width: 15vw;
+    }
+}
+
+
+@media(min-width: 1400px) {
+    .header__img {
+        width: 10vw;
+        margin-left: 130px;
+    }
+
+    .header__button {
+        width: 5vw;
+        margin-right: 151px;
+    }
+}
+
+
+
+@media(min-width: 2000px){
+    .header__img {
+        width: 8vw;
+        margin-left: 632px;
+    }
+
+    .header__input {
+        width: 10vw;
+    }
+
+    .header__button {
+        margin-right: 600px;
+    }
+}
