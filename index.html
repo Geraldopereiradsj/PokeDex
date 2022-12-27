@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./src/styles/reset.css">
   <link rel="stylesheet" href="./src/styles/globalStyles.css">
   <link rel="stylesheet" href="./src/styles/index.css">
+  <script src="./src/scripts/index.js" defer></script>
+  <script src="./src/scripts/requests.js" defer></script>
   <title>Consumindo PokeAPI</title>
 </head>
 
@@ -16,7 +18,7 @@
     <div class="container__header">
       <img src="./src/assets/pokeapi.png" alt="Pokéapi" class="header__img">
       <div class="container__header--input">
-        <input type="text" placeholder="Pesquisar por..." class="header__input">
+        <input type="text" placeholder="Pesquisar por..." class="header__input" id="quantidade" name="quantidade">
         <button class="header__button"><img src="./src/assets/search-icon.png" alt="pesquisar"></button>
       </div>
     </div>
@@ -25,10 +27,10 @@
   </header>
 
   <main>
-    <!-- <div class="carregando">Carregando...</div> -->
+    <!-- <h4 class="hidden">Carregando...</h4> -->
 
     <ul class="main__ul">
-      <li class="main__li">
+      <!-- <li class="main__li">
         <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
         <span class="main__pokemon">Bulbasaur</span>
       </li>
@@ -47,7 +49,7 @@
       <li class="main__li">
         <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
         <span class="main__pokemon">Bulbasaur</span>
-      </li>
+      </li> -->
     </ul>
   </main>
 </body>
