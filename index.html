@@ -18,8 +18,10 @@
     <div class="container__header">
       <img src="./src/assets/pokeapi.png" alt="Pokéapi" class="header__img">
       <div class="container__header--input">
-        <input type="text" placeholder="Pesquisar por..." class="header__input" id="quantidade" name="quantidade">
-        <button class="header__button"><img src="./src/assets/search-icon.png" alt="pesquisar"></button>
+        <form class="form">
+          <input type="text" placeholder="Pesquisar por..." class="header__input" id="quantidade" name="quantidade" required>
+          <button class="header__button"><img src="./src/assets/search-icon.png" alt="pesquisar"></button>
+        </form>
       </div>
     </div>
 
@@ -27,29 +29,13 @@
   </header>
 
   <main>
-    <!-- <h4 class="hidden">Carregando...</h4> -->
+    <h4 class="carregar"></h4>
 
     <ul class="main__ul">
-      <!-- <li class="main__li">
-        <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
-        <span class="main__pokemon">Bulbasaur</span>
-      </li>
       <li class="main__li">
-        <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
-        <span class="main__pokemon">Bulbasaur</span>
+        <img class="main__img">
+        <h3 class="main__pokemon"></h3>
       </li>
-      <li class="main__li">
-        <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
-        <span class="main__pokemon">Bulbasaur</span>
-      </li>
-      <li class="main__li">
-        <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
-        <span class="main__pokemon">Bulbasaur</span>
-      </li>
-      <li class="main__li">
-        <img src="./src/assets/1 2.png" alt="Bulbasaur" class="main__img">
-        <span class="main__pokemon">Bulbasaur</span>
-      </li> -->
     </ul>
   </main>
 </body>

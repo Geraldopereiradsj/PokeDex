@@ -4,6 +4,10 @@ body {
     background-color: var(--color-grey-1);
 }
 
+.form {
+    display: contents;
+}
+
 header {
     padding-top: 15px;
 }
@@ -18,6 +22,7 @@ header {
 
 .header__img {
     width: 30vw;
+    cursor: pointer;
 }
 
 
@@ -41,6 +46,7 @@ header {
 }
 
 .header__button {
+    cursor: pointer;
     background-color: var(--color-brand-1);
 
     border: none;
@@ -64,7 +70,7 @@ h1 {
 
 
 
-h4 {
+.carregar {
     color: var(--color-grey-6);
 
     text-align: center;
@@ -91,6 +97,7 @@ h4 {
     max-width: 80vw;
 
     border-radius: 8px;
+    
 }
 
 .main__pokemon {

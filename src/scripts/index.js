@@ -1,37 +1,14 @@
-// function render(array) {
-//     const mainList = document.querySelector('.main__ul')
+const ulTag = document.querySelector('.main__ul')
+const liTag = document.querySelector('.main__li')
+const pokemonName = document.querySelector('.main__pokemon')
+const pokemonImg = document.querySelector('.main__img')
+const form = document.querySelector('.form')
+const inputSearch = document.querySelector('.header__input')
+const buttonSearch = document.querySelector('.header__button')
+const carregar = document.querySelector('.carregar')
+carregar.innerText = 'Carregando...';
+const logo = document.querySelector('.header__img')
 
-//     mainList.innerHTML = ''
-
-//     array.forEach(element => {
-//         const cardPokemon = createCard(element)
-
-//         mainList.append(cardPokemon)
-//     })
-// }
-
-
-
-
-
-// function createCard({name, url}) {
-//     const li = document.createElement('li')
-//     li.classList.add('main__li')
-
-//     const image = document.createElement('img')
-//     image.classList.add('main__img')
-//     image.alt = name
-//     image.id = url
-//     image.src = img
-
-//     const span = document.createElement('span')
-//     span.classList.add('main__pokemon')
-//     span.innerText = name
-
-//     li.append(image, span)
-
-//     return li
-// }
 
 
 async function getAllPokemons() {
@@ -45,7 +22,7 @@ async function getAllPokemons() {
         .then(res => {
             return res
         })
-    
+
     return pokemons
 
 }
@@ -53,29 +30,70 @@ async function getAllPokemons() {
 
 
 async function renderizaPokemons() {
-    const ulTag = document.querySelector('.main__ul')
-
     const listaDePokemons = await getAllPokemons()
-
+    
     listaDePokemons.results.forEach(pokemon => {
         const numeroNaPokedex = pokemon.url.slice(34, -1)
-
+        
         ulTag.insertAdjacentHTML('beforeend', `
             <li class="main__li">
                 <img  class="main__img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${numeroNaPokedex}.png" alt=${pokemon.name}>
                 <h3 class="main__pokemon">${pokemon.name}</h3>
-            </li>
-        `)
-    })
+            </li>`);
+    });
 }
 
 
+const fetchpokemon = async (pokemon) => {
+    const ApiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
+
+    if (ApiResponse.status == 200) {
+        const data = await ApiResponse.json();
+        return data;
+    }
+}
 
 
+const renderPokemonByName = async (pokemon) => {
+    carregar.innerText = 'Carregando...';
+    ulTag.innerHTML = ''
+    const data = await fetchpokemon(pokemon);
 
-getAllPokemons()
-renderizaPokemons()
 
+    if (data) {
+        inputSearch.value = '';
+        carregar.innerText = '';    
+        ulTag.appendChild(liTag)
+        pokemonName.innerText = data.name;
+        pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
 
+    } else if (inputSearch.value.toLowerCase() == 'todos') {
+        pokemonName.innerText = '';
+        pokemonImg.src = '';
+        inputSearch.value = '';
+        carregar.innerText = '';
+       await renderizaPokemons();
 
+       
+    } else {
+        carregar.innerText = '';
+        pokemonImg.src = '';
+        pokemonName.innerText = '';
 
+    }
+
+}
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    renderPokemonByName(inputSearch.value);
+});
+
+function renderAll() {
+    logo.addEventListener('click', (event) => {
+        carregar.innerText = '';
+        ulTag.innerHTML = ''
+        event.preventDefault()
+        renderizaPokemons()
+    })
+}
+renderAll()
